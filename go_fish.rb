@@ -6,14 +6,14 @@ def prompt
   print "> "
 end
 
-def make_hand(i)
-  hand = Array.new
-  i.times do
-    card = GoFishDeck.sample
-    hand.push(card)
-    GoFishDeck.delete_card(card)
+def make_hand(i) # call this function with 1 argument
+  hand = Array.new # make a new array object assigned to hand
+  i.times do #as many times as the argument you were given...
+    card = GoFishDeck.sample # get a random card from GoFishDeck
+    hand.push(card) # add that random card to the hand array
+    GoFishDeck.delete_card(card) # delete that random card from GoFishDeck
   end
-  hand
+  hand # return the array with i random cards from GoFishDeck
 end
 
 def show_hand(array)
