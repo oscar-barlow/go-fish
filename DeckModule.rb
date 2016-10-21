@@ -11,23 +11,19 @@ def suit
   Deck.sample
 end
 
-def DeckModule
+# pick a random card from one of the suits. Combine it with its suit sign.
+# Delete it from the suit so it won't get picked again.
+def random_card_select_delete
+  card = suit[1].sample
+  suit.delete(card)
+  "#{suit[0]} #{card}"
+end
 
-  # pick a random card from one of the suits. Combine it with its suit sign.
-  # Delete it from the suit so it won't get picked again.
-  def random_card_select_delete
-    card = suit[1].sample
-    suit.delete(card)
-    "#{suit[0]} #{card}"
+# Build an array of all cards in all suits
+def shuffled_deck
+  shuffled_deck = Array.new
+  52.times do
+    shuffled_deck.push(random_card_select_delete)
   end
-
-  # Build an array of all cards in all suits
-  def shuffled_deck
-    shuffled_deck = Array.new
-    52.times do
-      shuffled_deck.push(random_card_select_delete)
-    end
-    shuffled_deck
-  end
-
+  shuffled_deck
 end

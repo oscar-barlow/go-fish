@@ -7,7 +7,7 @@ require "./DeckModule.rb"
 class ShuffledDeck
 
   def initialize
-    @order = DeckModule.shuffled_deck
+    @order = shuffled_deck
   end
 
   def order # mainly for debugging. So I can get/look inside a ShuffledDeck object
