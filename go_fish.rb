@@ -6,7 +6,8 @@ Diamonds = ["♢",[1,2,3,4,5,6,7,8,9,10,11,12,13]]
 Deck = [Spades, Clubs, Hearts, Diamonds]
 
 def suit
-  Deck.sample
+  suit = Deck.sample
+  suit
 end
 
 def random_card_select_delete
