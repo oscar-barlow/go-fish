@@ -1,4 +1,5 @@
 require "./DeckClass.rb"
+require "./PlayerClass.rb"
 
 GoFishDeck = ShuffledDeck.new
 
@@ -9,7 +10,7 @@ end
 def make_hand(i) # call this function with 1 argument
   hand = Array.new # make a new array object assigned to hand
   i.times do #as many times as the argument you were given...
-    card = GoFishDeck.shift # get a random card from GoFishDeck
+    card = GoFishDeck.shift # get the first card from GoFishDeck
     hand.push(card) # add that random card to the hand array
   end
   hand # return the array with i random cards from GoFishDeck
@@ -22,7 +23,20 @@ def show_hand(array)
   print "\n"
 end
 
-deck_count = GoFishDeck.order.count
+players = [
+  "John",
+  "Sandra",
+  "Abel",
+  ""
+]
+
+
+# ----------
+
+# This section was used for debugging. Probably not useful any more
+# But I'm gonna keep it til I'm sure.
+
+# deck_count = GoFishDeck.order.count
 
 # while deck_count > 0
 #   puts "How many cards shall I deal you?"
