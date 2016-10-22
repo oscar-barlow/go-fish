@@ -23,12 +23,46 @@ def show_hand(array)
   print "\n"
 end
 
-players = [
+PlayersLibrary = [
   "John",
   "Sandra",
   "Abel",
-  ""
+  "Nikolai",
+  "Miko",
+  "Ali",
 ]
+
+def make_players(i)
+
+  puts "Great! Let's get started."
+end
+
+def get_players_no # MASSIVE WIP!
+  puts "How many people do you want to play with?"
+  prompt
+end
+
+puts "Let's play a game of \'Go Fish\'!"
+
+
+players_number = gets.chomp.to_i
+
+
+if players_number > 10
+  puts "I'm sorry, you can have a maximum of 10 players.", "\n"
+  puts "How many people do you want to play with?"
+  prompt
+  players_number = gets.chomp.to_i
+
+elsif players_number == 0
+  puts "I'm sorry, you have to play with at least one other player.", "\n"
+  puts "How many people do you want to play with?"
+  prompt
+  players_number = gets.chomp.to_i
+
+else
+  great
+end
 
 
 # ----------
