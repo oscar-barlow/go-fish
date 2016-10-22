@@ -15,11 +15,18 @@ class ShuffledDeck
   end
 
   def sample # randomly pull a card from a ShuffledDeck
-    @order.sample
+    hand = @order
+    hand.sample
   end
 
   def delete_card(c) # delete a card from a ShuffledDeck
-    @order.delete(c)
+    hand = @order
+    hand.delete(c)
+  end
+
+  def shift
+    hand = @order
+    hand.shift
   end
 
 end
