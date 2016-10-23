@@ -17,67 +17,42 @@ def make_hand(i) # call this function with 1 argument
 end
 
 def show_hand(array)
-  line_width = 80
+  line_width = `/usr/bin/env tput cols`.to_i
   puts "- Your Hand -".center line_width
   puts array.join(" / ").center line_width
   print "\n"
 end
 
-PlayersLibrary = [
-  "John",
-  "Sandra",
-  "Abel",
-  "Nikolai",
-  "Miko",
-  "Ali",
-]
-
 def make_players(i)
-
   puts "Great! Let's get started."
+  game_players = PlayersLibrary.shuffle
+
+  current_players = Array.new
+
+  i.times do
+    new_player = game_players.shift
+    new_player = CardPlayer.new("#{new_player}", 5)
+    current_players.push(new_player)
+  end
+  show_players(current_players) # how do I make it show me the names, not the object ids? How do I find and manipulate the objects?
 end
 
-def get_players_no # MASSIVE WIP!
-  puts "How many people do you want to play with?"
-  prompt
+def show_players(array)
+  line_width = `/usr/bin/env tput cols`.to_i
+  puts "- Your are playing with: -".center line_width
+  puts array.join(", ").center line_width
+  print "\n"
 end
 
-puts "Let's play a game of \'Go Fish\'!"
 
-
-players_number = gets.chomp.to_i
-
-
-if players_number > 10
-  puts "I'm sorry, you can have a maximum of 10 players.", "\n"
+def get_players_no
   puts "How many people do you want to play with?"
   prompt
   players_number = gets.chomp.to_i
-
-elsif players_number == 0
-  puts "I'm sorry, you have to play with at least one other player.", "\n"
-  puts "How many people do you want to play with?"
-  prompt
-  players_number = gets.chomp.to_i
-
-else
-  great
+  make_players(players_number)
 end
-
 
 # ----------
 
-# This section was used for debugging. Probably not useful any more
-# But I'm gonna keep it til I'm sure.
-
-# deck_count = GoFishDeck.order.count
-
-# while deck_count > 0
-#   puts "How many cards shall I deal you?"
-#   prompt
-#   dealout = gets.chomp.to_i
-#   player_hand = make_hand(dealout)
-#   show_hand(player_hand)
-#   puts "Let's chuck those away."
-#   puts "There are #{GoFishDeck.order.length} cards left."
-# end
+puts "Let's play a game of \'Go Fish\'!"
+get_players_no
