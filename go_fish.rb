@@ -10,7 +10,7 @@ end
 
 def make_hand(i) # call this function with 1 argument
   hand = Array.new # make a new array object assigned to hand
-  i.times do #as many times as the argument you were given...
+  i.times do # as many times as the argument you were given...
     card = GoFishDeck.shift # get the first card from GoFishDeck
     hand.push(card) # add that random card to the hand array
   end
@@ -33,7 +33,7 @@ def make_players(i)
     new_player = CardPlayer.new("#{new_player}", 5)
     CurrentPlayers.push(new_player)
   end
-  show_players(CurrentPlayers) # how do I make it show me the names, not the object ids? How do I find and manipulate the objects?
+  show_players(CurrentPlayers)
 end
 
 def show_players(array)
@@ -55,3 +55,5 @@ end
 
 puts "Let's play a game of \'Go Fish\'!"
 get_players_no
+show_hand(make_hand(5)) # OK WTF is going on. Hands seem to be very inconsistently removing cards from the deck.
+puts "It's your go."
