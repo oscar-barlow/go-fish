@@ -2,6 +2,7 @@ require "./DeckClass.rb"
 require "./PlayerClass.rb"
 
 GoFishDeck = ShuffledDeck.new
+CurrentPlayers = Array.new
 
 def prompt
   print "> "
@@ -27,20 +28,18 @@ def make_players(i)
   puts "Great! Let's get started."
   game_players = PlayersLibrary.shuffle
 
-  current_players = Array.new
-
   i.times do
     new_player = game_players.shift
     new_player = CardPlayer.new("#{new_player}", 5)
-    current_players.push(new_player)
+    CurrentPlayers.push(new_player)
   end
-  show_players(current_players) # how do I make it show me the names, not the object ids? How do I find and manipulate the objects?
+  show_players(CurrentPlayers) # how do I make it show me the names, not the object ids? How do I find and manipulate the objects?
 end
 
 def show_players(array)
   line_width = `/usr/bin/env tput cols`.to_i
-  puts "- Your are playing with: -".center line_width
-  puts array.join(", ").center line_width
+  puts "- You are playing with -".center line_width
+  puts array.collect { |player| player.name }.join(", ").center line_width
   print "\n"
 end
 
