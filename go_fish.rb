@@ -55,5 +55,11 @@ end
 
 puts "Let's play a game of \'Go Fish\'!"
 get_players_no
+print CurrentPlayers[0].hand
+print "\n"
 show_hand(make_hand(5)) # OK WTF is going on. Hands seem to be very inconsistently removing cards from the deck.
-puts "It's your go."
+print GoFishDeck.order
+print "\n"
+print GoFishDeck.order.length
+print "\n"
+# puts "It's your go."
