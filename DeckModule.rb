@@ -3,7 +3,7 @@ def shuffled_deck
   deck, shuffle = Array.new, Array.new
   suit = ["H", "C", "D", "S"]
   (0..3).each do |i|
-    (0..12).each do |j|
+    (1..13).each do |j|
       deck << "#{suit[i]} #{j}"
     end
   end
