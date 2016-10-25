@@ -18,7 +18,7 @@ def make_hand(i) # call this function with 1 argument
 end
 
 def show_hand(array)
-  line_width = `/usr/bin/env tput cols`.to_i
+  line_width = 80
   puts "- Your Hand -".center line_width
   puts array.join(" / ").center line_width
   print "\n"
@@ -37,7 +37,7 @@ def make_players(i)
 end
 
 def show_players(array)
-  line_width = `/usr/bin/env tput cols`.to_i
+  line_width = 80
   puts "- You are playing with -".center line_width
   puts array.collect { |player| player.name }.join(", ").center line_width
   print "\n"
