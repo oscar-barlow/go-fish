@@ -12,10 +12,10 @@ end
 def make_hand(i) # call this function with 1 argument
   hand = Array.new # make a new array object assigned to hand
   i.times do # as many times as the argument you were given...
-    card = GoFishDeck.shift # get the first card from GoFishDeck
+    card = GoFishDeck.order.shift # get the first card from @go_fish_deck
     hand.push(card) # add that card to the hand array
   end
-  hand # return the array with i cards from the top of GoFishDeck
+  hand # return the array with i cards from the top of @go_fish_deck
 end
 
 def show_hand(array)
