@@ -2,8 +2,8 @@ require "./DeckClass.rb"
 require "./PlayerClass.rb"
 
 GoFishDeck = ShuffledDeck.new
-CurrentPlayers = Array.new
-UserPlayer = ''
+@current_players = Array.new
+@user_player = ''
 
 def prompt
   print "> "
@@ -31,7 +31,7 @@ def make_players(i)
   i.times do
     playername = game_players.shift
     new_player = CardPlayer.new("#{playername}", 5)
-    CurrentPlayers.push(new_player)
+    @current_players.push(new_player)
   end
 end
 
@@ -52,14 +52,14 @@ end
 def add_user_player
   puts "What's your name?"
   playername = gets.chomp
-  UserPlayer = CardPlayer.new("#{playername}", 5)
-  CurrentPlayers.push(UserPlayer)
+  @user_player = CardPlayer.new("#{playername}", 5)
+  @current_players.push(@user_player)
 end
 
 # ----------
 
 puts "Let's play a game of \'Go Fish\'!"
 get_players_no
-show_players(CurrentPlayers)
+show_players(@current_players)
 add_user_player
-show_hand(UserPlayer)
+show_hand(@user_player.hand)
