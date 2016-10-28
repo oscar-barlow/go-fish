@@ -18,17 +18,12 @@ PlayersLibrary = [
 
 class CardPlayer
 
+  attr_reader :name
+  attr_reader :hand
+
   def initialize(name, i)
     @name = name
     @hand = make_hand(i)
-  end
-
-  def name
-    @name
-  end
-
-  def hand
-    @hand
   end
 
 end

@@ -3,6 +3,7 @@ require "./PlayerClass.rb"
 
 GoFishDeck = ShuffledDeck.new
 CurrentPlayers = Array.new
+UserPlayer = ''
 
 def prompt
   print "> "
@@ -12,9 +13,9 @@ def make_hand(i) # call this function with 1 argument
   hand = Array.new # make a new array object assigned to hand
   i.times do # as many times as the argument you were given...
     card = GoFishDeck.shift # get the first card from GoFishDeck
-    hand.push(card) # add that random card to the hand array
+    hand.push(card) # add that card to the hand array
   end
-  hand # return the array with i random cards from GoFishDeck
+  hand # return the array with i cards from the top of GoFishDeck
 end
 
 def show_hand(array)
@@ -25,22 +26,19 @@ def show_hand(array)
 end
 
 def make_players(i)
-  puts "Great! Let's get started."
   game_players = PlayersLibrary.shuffle
 
   i.times do
-    new_player = game_players.shift
-    new_player = CardPlayer.new("#{new_player}", 5)
+    playername = game_players.shift
+    new_player = CardPlayer.new("#{playername}", 5)
     CurrentPlayers.push(new_player)
   end
-  show_players(CurrentPlayers)
 end
 
 def show_players(array)
   line_width = 80
   puts "- You are playing with -".center line_width
   puts array.collect { |player| player.name }.join(", ").center line_width
-  print "\n"
 end
 
 
@@ -51,15 +49,17 @@ def get_players_no
   make_players(players_number)
 end
 
+def add_user_player
+  puts "What's your name?"
+  playername = gets.chomp
+  UserPlayer = CardPlayer.new("#{playername}", 5)
+  CurrentPlayers.push(UserPlayer)
+end
+
 # ----------
 
 puts "Let's play a game of \'Go Fish\'!"
 get_players_no
-print CurrentPlayers[0].hand
-print "\n"
-show_hand(make_hand(5)) # OK WTF is going on. Hands seem to be very inconsistently removing cards from the deck.
-print GoFishDeck.order
-print "\n"
-print GoFishDeck.order.length
-print "\n"
-# puts "It's your go."
+show_players(CurrentPlayers)
+add_user_player
+show_hand(UserPlayer)

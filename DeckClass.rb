@@ -6,12 +6,10 @@ require "./DeckModule.rb"
 
 class ShuffledDeck
 
+  attr_reader :order
+
   def initialize
     @order = shuffled_deck
-  end
-
-  def order # mainly for debugging. So I can get/look inside a ShuffledDeck object
-    @order
   end
 
   def sample # randomly pull a card from a ShuffledDeck
