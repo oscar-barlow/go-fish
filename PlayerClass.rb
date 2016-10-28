@@ -1,3 +1,5 @@
+require "./DeckModule.rb"
+
 PlayersLibrary = [
   "John",
   "Sandra",

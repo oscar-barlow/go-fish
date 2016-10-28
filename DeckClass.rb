@@ -6,7 +6,7 @@ require "./DeckModule.rb"
 
 class ShuffledDeck
 
-  attr_reader :order
+  attr_accessor :order
 
   def initialize
     @order = shuffled_deck
