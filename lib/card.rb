@@ -1,3 +1,5 @@
+# stores card info: value, suit, rank if applicable
+
 class Card
 
   attr_reader :value, :suit, :rank

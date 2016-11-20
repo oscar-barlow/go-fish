@@ -27,11 +27,6 @@ describe Card do
     expect(card.rank).to eq "Jack"
   end
 
-  # it 'displays a rank instead of a number for cards with value > 10' do
-  #   card = create_card(value: 11)
-  #   expect(card.rank).to eq "Jack"
-  # end
-
 end
 
 def create_card(arguments)
