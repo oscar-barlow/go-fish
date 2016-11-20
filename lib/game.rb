@@ -51,6 +51,7 @@ end
 
 def add_user_player
   puts "What's your name?"
+  prompt
   playername = gets.chomp
   @user_player = CardPlayer.new("#{playername}", 5)
   @current_players.push(@user_player)
