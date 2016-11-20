@@ -1,30 +1,11 @@
-# Define an object that I can store a shuffled deck of cards in
-# and give it a method so I can remove cards from the deck
-# which is useful when I want to deal them out.
+# stores 52 cards, 1 of each value for each of 4 suits
 
-require "./DeckModule.rb"
+class Deck
 
-class ShuffledDeck
-
-  attr_accessor :order
+  attr_reader :order
 
   def initialize
-    @order = shuffled_deck
-  end
-
-  def sample # randomly pull a card from a ShuffledDeck
-    hand = @order
-    hand.sample
-  end
-
-  def delete_card(c) # delete a card from a ShuffledDeck
-    hand = @order
-    hand.delete(c)
-  end
-
-  def shift
-    hand = @order
-    hand.shift
+    @order = []
   end
 
 end
