@@ -10,26 +10,28 @@ class Card
     @rank = rank_name if rank_applicable?
   end
 
-  def rank_applicable?
-    (greater_than_ten? || is_ace?)
-  end
+  private
 
-  def greater_than_ten?
-    @value > 10
-  end
-
-  def is_ace?
-    @value == 1
-  end
-
-  def rank_name
-    case @value
-      when 1 then return "Ace"
-      when 11 then return "Jack"
-      when 12 then return "Queen"
-      when 13 then return "King"
-      else nil
+    def rank_applicable?
+      (greater_than_ten? || is_ace?)
     end
-  end
+
+    def greater_than_ten?
+      @value > 10
+    end
+
+    def is_ace?
+      @value == 1
+    end
+
+    def rank_name
+      case @value
+        when 1 then return "Ace"
+        when 11 then return "Jack"
+        when 12 then return "Queen"
+        when 13 then return "King"
+        else nil
+      end
+    end
 
 end
