@@ -1,31 +1,18 @@
-require "./DeckModule.rb"
+# requests cards from other players to make books in their hand
 
-PlayersLibrary = [
-  "John",
-  "Sandra",
-  "Abel",
-  "Nikolai",
-  "Miko",
-  "Ali",
-  "Florentina",
-  "Siavash",
-  "Neha",
-  "Eduardo",
-  "Mehmud",
-  "Clara",
-  "Tsang",
-  "Soong",
-  "Xiao",
-]
-
-class CardPlayer
+class Player
 
   attr_reader :name
-  attr_reader :hand
 
-  def initialize(name, i)
+  def initialize(name)
+    fail "A player name must be a string." unless is_a_string?(name)
     @name = name
-    @hand = make_hand(i)
+  end
+
+  private
+
+  def is_a_string?(name)
+    name.is_a? String
   end
 
 end

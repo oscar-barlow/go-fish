@@ -2,6 +2,12 @@
 
 ## DONE
 
+As a player
+So that I can identify cards
+I want cards to have a value, a suit, and a rank if applicable
+
+## DOING
+
 As a human player
 So that I can play a game when I'm on my own
 I want to play with computer-generated players
@@ -11,6 +17,10 @@ I want to play with computer-generated players
 As a player
 So that the game can start
 I want all players to be dealt hands
+
+As a human player
+So that the other players can recognise me
+I want to tell the game my name
 
 As a dealer
 So that the deck doesn't run out of cards
