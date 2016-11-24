@@ -33,3 +33,6 @@ If the player whose turn it is receives cards from another player, they make mak
 
 ## Contributing
 Please feel free to fork this repo and submit a pull request with changes. Thanks in advance!
+
+## License
+This software is distributed under the GNU-GPL 3.0 license. More details in the docs.
